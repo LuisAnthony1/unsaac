@@ -1,0 +1,25 @@
+# Compilados de C y Ensamblador
+*.o
+*.obj
+*.out
+
+# Binarios generados en laboratorios
+Lab06_Ejemplo1_Main
+Lab06_Ejemplo2_Main
+Lab06_Propuesto1_Main
+Lab06_Propuesto2_Main
+Lab06_Propuesto3_Main
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Editores y sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
