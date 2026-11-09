@@ -123,7 +123,7 @@ sudo apt install -y nasm binutils
 ```
 
 > [!NOTE]
-> Todos los archivos fuente incluyen la directiva `default rel`. En versiones recientes como NASM 3.01, esto elimina la advertencia de obsolescencia de direccionamiento absoluto (`implicit DEFAULT ABS is deprecated`), generando código RIP-relativo moderno y limpio.
+> Todos los archivos fuente `.asm` siguen el formato de comentarios estándar de la guía docente (`Programa`, `Compilación`, `Linkeado`, `Ejecución`) sin directivas adicionales, listos para ser ensamblados y enlazados directamente desde la terminal.
 
 ---
 
@@ -136,24 +136,14 @@ L07/
 ├── README.md                                  # Guía completa de arquitectura, compilación y pruebas
 ├── L07-Operaciones Aritméticas en x64 v.13.docx - L07-Operaciones Aritméticas en x64.pdf  # Guía oficial PDF
 │
-├── Lab07_Practica1.asm                        # Práctica 1 (5.1-1): Multiplicación, División Entera y Módulo
-├── Lab07_Practica1.o                          # Código objeto generado
-├── Lab07_Practica1                            # Ejecutable binario ELF de 64 bits
-│
+├── Lab07_Ejemplo1.asm                         # Práctica 1 (5.1-1): Multiplicación, División Entera y Módulo
+├── Lab07_Practica1.asm                        # Práctica 1 (5.1-1, nombre alternativo)
 ├── Lab07_Propuesto1.asm                       # Propuesto 1 (6.1): División decimal fija (4 decimales)
-├── Lab07_Propuesto1.o                         # Código objeto generado
-├── Lab07_Propuesto1                           # Ejecutable binario ELF de 64 bits
-│
-├── Lab07_Propuesto2.asm                       # Propuesto 2 (6.2): Precisión variable (0 a 100 decimales)
-├── Lab07_Propuesto2.o                         # Código objeto generado
-├── Lab07_Propuesto2                           # Ejecutable binario ELF de 64 bits
-│
-├── Lab07_Ejemplo1.asm -> Lab07_Practica1.asm  # Enlace simbólico de compatibilidad
-└── Lab07_Ejemplo1     -> Lab07_Practica1      # Enlace simbólico de compatibilidad
+└── Lab07_Propuesto2.asm                       # Propuesto 2 (6.2): Precisión variable (0 a 100 decimales)
 ```
 
-### ¿Qué son los archivos sin extensión (`Lab07_Practica1`, `Lab07_Propuesto1`, etc.)?
-En los sistemas operativos tipo Unix/Linux, los ejecutables compilan al formato binario **ELF (Executable and Linkable Format)** de 64 bits y tradicionalmente no llevan extensión (a diferencia de Windows que usa `.exe`). Son los binarios finales listos para ser ejecutados en la terminal.
+### Generación de Ejecutables
+En los sistemas operativos tipo Unix/Linux, el usuario ensambla con `nasm -f elf64` y enlaza con `ld` para generar los binarios **ELF** sin extensión (listos para ejecución con `./nombre_programa`).
 
 La guía del docente solicita expresamente:
 > *"Adjuntar los respectivos códigos .asm, y los ejecutables (los nombres de los ejecutables deberán claramente referenciar a que ejercicio propuesto corresponden)."*
