@@ -4,15 +4,29 @@
 *.out
 
 # Binarios generados en laboratorios
+# Lab 05
+L05a_suma
+L05b_factorial
+L06_1_comparar_cadenas
+L06_2_promedio
+L06_3_fibonacci
+
+# Lab 06
 Lab06_Ejemplo1_Main
 Lab06_Ejemplo2_Main
 Lab06_Propuesto1_Main
 Lab06_Propuesto2_Main
 Lab06_Propuesto3_Main
+
+# Lab 07
 Lab07_Practica1
 Lab07_Ejemplo1
 Lab07_Propuesto1
 Lab07_Propuesto2
+
+# Archivos temporales de oficina
+~$*
+.~lock.*#
 
 # Python
 __pycache__/
