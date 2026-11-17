@@ -1,5 +1,4 @@
 # Universidad Nacional de San Antonio Abad del Cusco
-# Departamento Academico de Informatica
 # Fundamentos de Programacion
 # --------------------------------------------------
 # MiLibreria

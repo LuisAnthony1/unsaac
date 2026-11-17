@@ -1,8 +1,5 @@
 # Universidad Nacional de San Antonio Abad del Cusco
-# Departamento Academico de Informatica
 # Luis Anthony Mamani Mescco
-# Fundamentos de Programacion - Guia de Modularidad
-# Soluciones. Requiere MiLibreria.py en la misma carpeta.
 
 from MiLibreria import *
 
