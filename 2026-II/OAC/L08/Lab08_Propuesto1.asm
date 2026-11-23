@@ -1,10 +1,10 @@
 ; Programa: Lab08_Propuesto1.asm
 ; Compilación: ~$ nasm -f elf64 Lab08_Propuesto1.asm
-;      Linkeado: ~$ ld Lab08_Propuesto1.o -o Lab08_Propuesto1
+;     Linkeado: ~$ ld Lab08_Propuesto1.o -o Lab08_Propuesto1
 ;     Ejecución: ~$ ./Lab08_Propuesto1
 
 section .data
-	msj_entrada  db "Ingrese una palabra o frase (40 caracteres): "
+	msj_entrada  db "Ingrese una palabra o frase de 40 caracteres: "
 	len_entrada  equ $ - msj_entrada
 	msj_si       db "Es un palindromo.", 10
 	len_si       equ $ - msj_si
@@ -15,27 +15,26 @@ section .data
 
 section .bss
 	buffer       resb 128
-	limpia       resb 41
 
 section .text
 	global _start
 
 _start:
-	; Mostrar mensaje de entrada
+	; mensaje de entrada
 	mov rax, 1
 	mov rdi, 1
 	mov rsi, msj_entrada
 	mov rdx, len_entrada
 	syscall
 
-	; Leer cadena desde stdin
+	; cadena desde stdin
 	mov rax, 0
 	mov rdi, 0
 	mov rsi, buffer
 	mov rdx, 128
 	syscall
 
-	; Eliminar salto de línea (\n y \r) al final
+	; salto de línea al final
 	mov rcx, rax
 .trim:
 	cmp rcx, 0
@@ -54,45 +53,18 @@ _start:
 .verificar_longitud:
 	cmp rcx, 40
 	jg .error_longitud
-
-	; Filtrar espacios y convertir mayúsculas a minúsculas
-	xor rbx, rbx
-	xor r8, r8
-.filtrar:
-	cmp rbx, rcx
-	jge .verificar_palindromo
-	mov al, [buffer + rbx]
-	inc rbx
-
-	cmp al, ' '
-	je .filtrar
-	cmp al, 9
-	je .filtrar
-
-	cmp al, 'A'
-	jl .guardar
-	cmp al, 'Z'
-	jg .guardar
-	add al, 32
-
-.guardar:
-	mov [limpia + r8], al
-	inc r8
-	jmp .filtrar
-
-.verificar_palindromo:
-	cmp r8, 0
+	cmp rcx, 0
 	je .no_palindromo
 
 	xor rsi, rsi
-	mov rdi, r8
+	mov rdi, rcx
 	dec rdi
 
 .comparar:
 	cmp rsi, rdi
 	jge .es_palindromo
-	mov al, [limpia + rsi]
-	mov dl, [limpia + rdi]
+	mov al, [buffer + rsi]
+	mov dl, [buffer + rdi]
 	cmp al, dl
 	jne .no_palindromo
 	inc rsi
