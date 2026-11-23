@@ -5,6 +5,21 @@
 # Luis Anthony Mamani Mescco
 # --------------------------------------------------
 
+# Modulo linea decorativa
+def line(C,N):
+    return C*N
+
+# Modulo presentacion institucional
+def presentacion(texto):
+    L = len("Universidad Nacional de San Antonio Abad del Cusco")
+    print(line("-", L + 4))
+    print("| Universidad Nacional de San Antonio Abad del Cusco |")
+    print(line("-", L + 4))
+    print("| Autor: Luis Anthony Mamani Mescco                  |")
+    print(line("-", L + 4))
+    print(f"| {texto.ljust(L)} |")
+    print(line("-", L + 4))
+
 # Modulo el mayor de 2 numeros
 def MayorDos(X,Y):
     if X>Y:
@@ -23,9 +38,11 @@ def SumaDivisores(N):
             Suma=Suma+K
     return Suma
 
+# Modulo Sumar divisores propios
 def SumaDivisoresPropios(N):
     return SumaDivisores(N)-N
 
+# Modulo Sumar divisores propios eficiente
 def SumaDivisoresPropios1(N):
     Suma=0
     K=0
@@ -35,9 +52,7 @@ def SumaDivisoresPropios1(N):
             Suma=Suma+K
     return Suma
 
-# MODULOS NUEVOS
-
-# Menor de 2 numeros (analogo a MayorDos)
+# Modulo Menor de 2 numeros
 def MenorDos(X,Y):
     if X<Y:
         Menor=X
@@ -45,7 +60,7 @@ def MenorDos(X,Y):
         Menor=Y
     return Menor
 
-# Leer un entero dentro del rango [Min, Max]
+# Modulo Leer un entero dentro del rango [Min, Max]
 def LeerEntero(Min,Max,Texto):
     N=int(input(Texto))
     while N<Min or N>Max:
@@ -53,7 +68,7 @@ def LeerEntero(Min,Max,Texto):
         N=int(input(Texto))
     return N
 
-# Leer un real dentro del rango [Min, Max]
+# Modulo Leer un real dentro del rango [Min, Max]
 def LeerReal(Min,Max,Texto):
     N=float(input(Texto))
     while N<Min or N>Max:
@@ -61,7 +76,7 @@ def LeerReal(Min,Max,Texto):
         N=float(input(Texto))
     return N
 
-# Contar divisores de N
+# Modulo Contar divisores de N
 def ContarDivisores(N):
     NroDivisores=0
     K=0
@@ -71,14 +86,14 @@ def ContarDivisores(N):
             NroDivisores=NroDivisores+1
     return NroDivisores
 
-# EsPrimo reutilizando ContarDivisores
+# Modulo EsPrimo reutilizando ContarDivisores
 def EsPrimo(N):
     if ContarDivisores(N)==2:
         return True
     else:
         return False
 
-# Factorial de N (N>=0)
+# Modulo Factorial de N
 def Factorial(N):
     Resultado=1
     K=0
@@ -87,15 +102,15 @@ def Factorial(N):
         Resultado=Resultado*K
     return Resultado
 
-# Numero combinatorio C(N,M)
+# Modulo Numero combinatorio C(N,M)
 def Combinatorio(N,M):
     return Factorial(N)//(Factorial(M)*Factorial(N-M))
 
-# Permutacion P(N,M) = N!/(N-M)!
+# Modulo Permutacion P(N,M)
 def Permutacion(N,M):
     return Factorial(N)//Factorial(N-M)
 
-# Potencia B elevado a N (N>=0)
+# Modulo Potencia B elevado a N
 def Potencia(B,N):
     Resultado=1
     K=0
@@ -103,3 +118,37 @@ def Potencia(B,N):
         K=K+1
         Resultado=Resultado*B
     return Resultado
+
+# Modulo fibonacci recursivo
+def fibonacci(n):
+    if n<2:
+        return n
+    else:
+        return fibonacci(n-1)+fibonacci(n-2)
+
+# Modulo cociente por restas sucesivas
+def cociente(A, B):
+    if A < B:
+        return 0
+    else:
+        return 1 + cociente(A - B, B)
+
+# Modulo resto de division entera
+def resto(A, B):
+    if A < B:
+        return A
+    return resto(A - B, B)
+
+# Modulo contar digitos de N recursivo
+def contarDigitos(N):
+    if N<10:
+        return 1
+    else:
+        return contarDigitos(N//10)+1
+
+# Modulo sumar digitos de N recursivo
+def sumarDigitos(N):
+    if N<10:
+        return N
+    else:
+        return sumarDigitos(N//10)+(N%10)

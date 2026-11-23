@@ -1,9 +1,11 @@
 import MiLibreria
 import random
 
+# Modulo linea decorativa
 def Line(C,N):
     return C*N
 
+# Modulo presentacion institucional
 def Presentacion():
     L=len("Universidad Nacional de San Antonio Abad del Cusco")
     print(Line("-",L+4))
@@ -14,23 +16,7 @@ def Presentacion():
     print("| Programa: Operaciones Aritmeticas                  |")
     print(Line("-",L+4))
 
-# Modulos para las operaciones matematicas
-def Suma(A, B):
-    return A + B
-
-def Resta(A, B):
-    if A >= B:
-        return A - B
-    return False
-
-def Multiplicacion(A, B):
-    return A * B
-
-def Division(A, B):
-    if B != 0:
-        return A // B
-    return False
-
+# Modulo menu principal
 def menu():
     print("====== Menu ======")
     print("1. Sumar")
@@ -41,10 +27,11 @@ def menu():
     opcion=MiLibreria.LeerEntero(1,5,"Escoge tu opcion: ")
     return opcion
 
+# Modulo Sumar enteros
 def Sumar():
     A = random.randint(1,99)
     B = random.randint(1,99)
-    r=Suma(A,B)
+    r = A + B
     print(f"La suma de {A} y {B} es?")
     resultado=int(input("-> "))
     if resultado==r:
@@ -52,15 +39,15 @@ def Sumar():
     else:
         print("Mal el resultado es",r)
 
+# Modulo Restar enteros
 def Restar():
     A = random.randint(1,99)
     B = random.randint(1,49)
-    r=Resta(A,B)
-    while r is False:
+    while A < B:
         print("Probando Otros Numeros")
         A = random.randint(1,99)
         B = random.randint(1,49)
-        r=Resta(A,B)
+    r = A - B
     print(f"La resta de {A} y {B} es?")
     resultado=int(input("-> "))
     if resultado==r:
@@ -68,10 +55,11 @@ def Restar():
     else:
         print("Mal el resultado es",r)
 
+# Modulo Multiplicar enteros
 def Multiplicar():
     A = random.randint(1,12)
     B = random.randint(1,12)
-    r=Multiplicacion(A,B)
+    r = A * B
     print(f"La Multiplicacion de {A} y {B} es?")
     resultado=int(input("-> "))
     if resultado==r:
@@ -79,13 +67,14 @@ def Multiplicar():
     else:
         print("Mal el resultado es",r)
 
+# Modulo Dividir enteros
 def Dividir():
     A = random.randint(1,12)
     B = random.randint(1,12)
-    r=Multiplicacion(A,B)
+    r = A * B
     print(f"La Division de {r} y {B} es?")
     resultado=int(input("-> "))
-    if resultado==Division(r,B):
+    if resultado==A:
         print("Correcto!")
     else:
         print("Mal el resultado es",A)
